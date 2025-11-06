@@ -1,0 +1,15 @@
+include:
+  - path: ../.tmp/docker-compose.secrets.yml
+    optional: true
+
+services:
+  app:
+    container_name: server
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile.develop
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    command: /bin/bash
